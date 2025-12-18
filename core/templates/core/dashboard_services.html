@@ -1,0 +1,31 @@
+{% extends "core/dashboard.html" %}
+{% block content %}
+<h3>Manage Services</h3>
+
+<h5>Add Service</h5>
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="add">
+    <div class="mb-3"><input type="text" name="title" placeholder="Title" class="form-control"></div>
+    <div class="mb-3"><input type="text" name="description" placeholder="Description" class="form-control"></div>
+    <div class="mb-3"><input type="text" name="image_path" placeholder="Image Path" class="form-control"></div>
+    <div class="mb-3"><input type="text" name="icon_path" placeholder="Icon Path" class="form-control"></div>
+    <button class="btn btn-success">Add</button>
+</form>
+
+<hr>
+<h5>Existing Services</h5>
+{% for service in services %}
+<form method="POST" class="mb-3">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="update">
+    <input type="hidden" name="id" value="{{ service.id }}">
+    <div class="mb-2"><input type="text" name="title" class="form-control" value="{{ service.title }}"></div>
+    <div class="mb-2"><input type="text" name="description" class="form-control" value="{{ service.description }}"></div>
+    <div class="mb-2"><input type="text" name="image_path" class="form-control" value="{{ service.image_path }}"></div>
+    <div class="mb-2"><input type="text" name="icon_path" class="form-control" value="{{ service.icon_path }}"></div>
+    <button class="btn btn-primary">Update</button>
+    <a href="?delete={{ service.id }}" class="btn btn-danger">Delete</a>
+</form>
+{% endfor %}
+{% endblock %}

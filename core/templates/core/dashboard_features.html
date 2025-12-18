@@ -1,0 +1,29 @@
+{% extends "core/dashboard.html" %}
+{% block content %}
+<h3>Manage Features</h3>
+
+<h5>Add Feature</h5>
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="add">
+    <input type="text" name="title" class="form-control mb-2" placeholder="Title">
+    <input type="text" name="description" class="form-control mb-2" placeholder="Description">
+    <input type="text" name="icon_path" class="form-control mb-2" placeholder="Icon Path">
+    <button class="btn btn-success">Add</button>
+</form>
+
+<hr>
+<h5>Existing Features</h5>
+{% for f in features %}
+<form method="POST" class="mb-3">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="update">
+    <input type="hidden" name="id" value="{{ f.id }}">
+    <input type="text" name="title" class="form-control mb-2" value="{{ f.title }}">
+    <input type="text" name="description" class="form-control mb-2" value="{{ f.description }}">
+    <input type="text" name="icon_path" class="form-control mb-2" value="{{ f.icon_path }}">
+    <button class="btn btn-primary">Update</button>
+    <a href="?delete={{ f.id }}" class="btn btn-danger">Delete</a>
+</form>
+{% endfor %}
+{% endblock %}

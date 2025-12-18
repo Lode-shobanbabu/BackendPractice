@@ -1,0 +1,28 @@
+{% extends "core/dashboard.html" %}
+{% block content %}
+<h3>Manage Hero Section</h3>
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label>Title</label>
+        <input type="text" name="title" class="form-control" value="{{ hero.title }}">
+    </div>
+    <div class="mb-3">
+        <label>Subtitle</label>
+        <input type="text" name="subtitle" class="form-control" value="{{ hero.subtitle }}">
+    </div>
+    <div class="mb-3">
+        <label>Button Text</label>
+        <input type="text" name="button_text" class="form-control" value="{{ hero.button_text }}">
+    </div>
+    <div class="mb-3">
+        <label>Button URL</label>
+        <input type="text" name="button_url" class="form-control" value="{{ hero.button_url }}">
+    </div>
+    <div class="mb-3">
+        <label>Image Path</label>
+        <input type="text" name="image_path" class="form-control" value="{{ hero.image_path }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}

@@ -1,0 +1,770 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Awaiken">
+
+    <!-- Page Title -->
+    <title>Mywebsite</title>
+
+    <!-- Favicon Icon -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/ss1.jpg' %}"> -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&amp;display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+
+    <!-- SlickNav CSS -->
+    <link href="{% static 'css/slicknav.min.css' %}" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link href="{% static 'css/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Animate CSS -->
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+
+    <!-- Magnific Popup CSS -->
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+
+    <!-- Mouse Cursor CSS -->
+    <link href="{% static 'css/mousecursor.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+</head>
+
+
+<body>
+
+    <!-- Header Start -->
+    <!-- Header Start -->
+    <header class="main-header" style="position: sticky; top: 0; z-index: 1000; background: #fff;">
+        <div class="header-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <!-- Logo Start -->
+
+                    <a class="navbar-brand" href="#">
+                   <img src="{% static 'images/orginal.png' %}" alt="Logo" style="height: 100px;">
+
+                    </a>
+
+                    <!-- Logo End -->
+
+                    <!-- Main Menu Start -->
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="index.html">
+                                    {{ site_header.nav_home|default:"Home" }}
+                                </a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="#">{{ site_header.nav_about|default:"About Us" }}</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">{{ site_header.nav_services|default:"Services" }}</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">{{ site_header.nav_gallery|default:"Gallery" }}</a></li>
+
+                                <li class="nav-item"><a class="nav-link" href="#">{{ site_header.nav_contact|default:"Contact Us" }}</a></li>
+                            </ul>
+                        </div>
+                        <!-- Header Btn Start -->
+                        <div class="header-btn">
+                            <a href="{{ site_header.header_button_url|default:'contact.html' }}" class="btn-default">
+                              {{ site_header.header_button_text|default:'get a quote' }}
+                            </a>
+                        </div>
+                        <!-- Header Btn End -->
+                    </div>
+                    <!-- Main Menu End -->
+                    <div class="navbar-toggle"></div>
+                </div>
+            </nav>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Header End -->
+
+    <!-- Hero Section Start -->
+    <div class="hero dark-section parallaxie">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <!-- Hero Content Start -->
+                    <div class="hero-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+
+                            <h1 class="text-anime-style-2" data-cursor="-opaque">{{ hero.title|default:"Trusted pest and bug management services for your home or business"|safe }}</h1>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">{{ hero.subtitle|default:"Protect your home and business with our effective pest control solutions. From termites to rodents we eliminate pest quickly & safely." }}</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Hero Button Start -->
+                        <div class="hero-btn wow fadeInUp" data-wow-delay="0.4s">
+                            <a href="{{ hero.button_url|default:'contact.html' }}" class="btn-default btn-highlighted">{{ hero.button_text|default:"book a service" }}</a>
+                            <!-- <a href="services.html" class="hero-service-btn">View All Services</a>                             -->
+                        </div>
+                        <!-- Hero Button End -->
+                    </div>
+                    <!-- Hero Content End -->
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Hero Image Start -->
+                    <div class="hero-image">
+                        <figure>
+                            {% if hero.image_path %}
+                                <img src="{% static hero.image_path %}" alt="">
+                            {% else %}
+                                <img src="{% static 'images/unnamed-removebg-preview.png' %}" alt="">
+                            {% endif %}
+                        </figure>
+                    </div>
+                    <!-- Hero Image End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Section End -->
+
+
+
+
+    <!-- About Us Section Start -->
+    <div class="about-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <!-- About Us Images Start -->
+                    <div class="about-us-images">
+                        <!-- About Us Image Start -->
+                        <div class="about-us-image">
+                            <figure class="image-anime">
+                                {% if about.image_path %}
+                                    <img src="{% static about.image_path %}" alt="">
+                                {% else %}
+                                    <img src="{% static 'images/sp1.jpg' %}" alt="">
+                                {% endif %}
+                            </figure>
+                        </div>
+                        <!-- About Us Image End -->
+
+                        <!-- About Us Circle Image Start -->
+                        <div class="about-us-circle-img-1">
+                            <figure class="image-anime">
+                                <img src="{% static 'images/about-circle-img-1.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                        <!-- About Us Circle Image End -->
+
+                        <!-- About Us Circle Image Start -->
+                        <div class="about-us-circle-img-2">
+                            <figure class="image-anime">
+                                <img src="{% static 'images/about-circle-img-2.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                        <!-- About Us Circle Image End -->
+                    </div>
+                    <!-- About Us Images End -->
+                </div>
+
+                <div class="col-lg-7">
+                    <!-- About us Content Start -->
+                    <div class="about-us-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">{{ about.small_title|default:"ABOUT US" }}</h3>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">{{ about.heading|default:"Protecting home, businesses, and communities" }}</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">{{ about.content|default:"Our mission is simple: to provide dependable pest management services that ensure a clean, safe, and comfortable environment for everyone. With years of expertise and a customer-first approach ,we go above and beyond to eliminate pests and prevent their return." }}</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <div class="about-us-body">
+                            <div class="about-us-list wow fadeInUp" data-wow-delay="0.4s">
+                                {% comment %} If you want to store the list items in DB later, change this to a loop {% endcomment %}
+                                <ul>
+                                    <li>Expertise You Can Trust</li>
+                                    <li>24/7 Availability</li>
+                                    <li>Certified Professionals</li>
+                                    <li>Affordable Solutions</li>
+                                    <li>Eco-Friendly Approach</li>
+                                    <li>Advanced Techniques</li>
+                                    <li>Customer-Focused Service</li>
+                                    <li>Commitment to Excellence</li>
+                                </ul>
+
+                                <!-- Added Founder and Managing Director -->
+                                <!-- <h4
+                                    style="margin-top: 20px; color: black; font-weight: 600; font-size: 19px; font-family: 'Poppins', sans-serif;">
+                                    Founder : <span style="color: #1c7ed9;">Rayapati Ramkoti</span>
+                                </h4>
+
+                                <h4
+                                    style="margin-top: 10px; color: black; font-weight: 600; font-size: 19px; font-family: 'Poppins', sans-serif;">
+                                    Managing Director : <span style="color: #1c7ed9;">Rayapati LaxmiDevi</span>
+                                </h4> -->
+
+                            </div>
+
+                            <div class="about-us-video-image wow fadeInUp" data-wow-delay="0.4s">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/allisokimage.jpg' %}" alt="">
+                                </figure>
+
+                                <!-- Video Play Button Start -->
+                                <div class="video-play-button">
+                                    <!-- <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video"
+                                        data-cursor-text="Play">
+                                        <i class="fa-solid fa-play"></i>
+                                    </a> -->
+                                </div>
+                                <!-- Video Play Button End -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- About us Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About us Section End -->
+
+
+
+    <!-- Our Services Section Start -->
+    <div class="our-services light-bg-section">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title section-title-center">
+                        <h3 class="wow fadeInUp">services</h3>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">{{ site_header.nav_services|default:"Commercial Pest Management Services" }}</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Services Slider Start -->
+                    <div class="services-slider">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                {% for s in services %}
+                                <!-- Services Slide Start -->
+                                <div class="swiper-slide">
+                                    <!-- Service Item Start -->
+                                    <div class="service-item">
+                                        <!-- Service Image Start -->
+                                        <div class="service-image">
+                                            <a href="#" data-cursor-text="View">
+                                                <figure class="image-anime">
+                                                    {% if s.image_path %}
+                                                        <img src="{% static s.image_path %}" alt="{{ s.title }}">
+                                                    {% else %}
+                                                        <img src="{% static 'images/s1.jpg' %}" alt="{{ s.title }}">
+                                                    {% endif %}
+                                                </figure>
+                                            </a>
+                                        </div>
+                                        <!-- Service Image End -->
+
+                                        <!-- Service Body Start -->
+                                        <div class="service-body">
+                                            <div class="icon-box">
+                                                {% if s.icon_path %}
+                                                    <img src="{% static s.icon_path %}" alt="icon">
+                                                {% else %}
+                                                    <img src="{% static 'images/icon-service-item-1.svg' %}" alt="icon">
+                                                {% endif %}
+                                            </div>
+                                            <div class="service-content">
+                                                <h3><a href="{{ s.readmore_url|default:'#' }}">{{ s.title }}</a></h3>
+                                                <p>{{ s.description }}</p>
+                                            </div>
+                                            <div class="service-btn">
+                                                <a href="{{ s.readmore_url|default:'#' }}" class="readmore-btn">read More</a>
+                                            </div>
+                                        </div>
+                                        <!-- Service Body End -->
+                                    </div>
+                                    <!-- Service Item End -->
+                                </div>
+                                <!-- Services Slide End -->
+                                {% empty %}
+                                <!-- fallback: show one default static slide if no services -->
+                                <div class="swiper-slide">
+                                    <div class="service-item">
+                                        <div class="service-image">
+                                            <figure class="image-anime">
+                                                <img src="{% static 'images/s1.jpg' %}" alt="">
+                                            </figure>
+                                        </div>
+                                        <div class="service-body">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/icon-service-item-1.svg' %}" alt="">
+                                            </div>
+                                            <div class="service-content">
+                                                <h3><a href="#">Sample Service</a></h3>
+                                                <p>Sample description. Add services from the dashboard.</p>
+                                            </div>
+                                            <div class="service-btn">
+                                                <a href="#" class="readmore-btn">read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="services-pagination"></div>
+                        </div>
+                    </div>
+                    <!-- Services Slider End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Section Footer Text Start -->
+                  
+                    <!-- Section Footer Text End -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+      el: '.services-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      992: { slidesPerView: 3 },
+      768: { slidesPerView: 2 },
+      0: { slidesPerView: 1 }
+    }
+  });
+</script>
+
+    <!-- Our Services Section End -->
+
+    <!-- Our Features Section Start -->
+    <div class="our-features">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="our-features-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Our Features</h3>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">{{ features.0.title|default:"Your trusted partner in pest control excellence" }}</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">{{ features.0.description|default:"We understand how frustrating and disruptive pests can be, which is why we're committed to providing fast, reliable, and effective solutions. With a team of certified experts, eco-friendly methods, and unmatched customer care." }}</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Our Features List Start -->
+                        <div class="our-features-list">
+                            {% for f in features %}
+                            <!-- Features Item Start -->
+                            <div class="features-item wow fadeInUp">
+                                <div class="icon-box">
+                                    {% if f.icon_path %}
+                                        <img src="{% static f.icon_path %}" alt="">
+                                    {% else %}
+                                        <img src="{% static 'images/icon-features-item-1.svg' %}" alt="">
+                                    {% endif %}
+                                </div>
+                                <div class="features-item-content">
+                                    <h3>{{ f.title }}</h3>
+                                    <p>{{ f.description }}</p>
+                                </div>
+                            </div>
+                            <!-- Features Item End -->
+                            {% empty %}
+                            <!-- default static features -->
+                            <div class="features-item wow fadeInUp">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-features-item-1.svg' %}" alt="">
+                                </div>
+                                <div class="features-item-content">
+                                    <h3>24/7 Pest Support</h3>
+                                    <p>We're always ready to respond quickly and solve your pest problems anytime.</p>
+                                </div>
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <!-- Our Features List End -->
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Features Image Start -->
+                    <div class="features-image">
+                        <figure class="image-anime reveal">
+                         <img src="{% static 'images/sprayerimage.jpg' %}" alt="Features Image">
+
+                        </figure>
+
+                        <!-- Contact Us Circle Start -->
+                        <div class="contact-us-circle">
+                            <!-- <a href="contact.html">
+                                <img src="{% static 'images/contact-us-circle.svg' %}" alt="">
+                            </a> -->
+                        </div>
+                        <!-- Contact Us Circle End -->
+                    </div>
+                    <!-- Features Image End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Features Section End -->
+
+
+
+    <!-- Why Choose Us Section Start -->
+    <div class="why-choose-us light-bg-section">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title section-title-center">
+                        <h3 class="wow fadeInUp">why choose us</h3>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">{{ whychoose.0.title|default:"What makes our services the perfect fit for you" }}</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">{{ whychoose.0.description|default:"We understand your frustration, and we're committed to bringing you hassle-free and dependable pest solutions." }}</p>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Why Choose Box Start -->
+                    <div class="why-choose-box">
+                        {% for w in whychoose %}
+                        <!-- Why Choose Item Start -->
+                        <div class="why-choose-item wow fadeInUp">
+                            <div class="icon-box">
+                                {% if w.icon_path %}
+                                    <img src="{% static w.icon_path %}" alt="">
+                                {% else %}
+                                    <img src="{% static 'images/icon3.png' %}" alt="">
+                                {% endif %}
+                            </div>
+                            <div class="why-choose-item-content">
+                                <h3>{{ w.title }}</h3>
+                                <p>{{ w.description }}</p>
+                            </div>
+                        </div>
+                        <!-- Why Choose Item End -->
+                        {% empty %}
+                        <!-- default why choose content -->
+                        <div class="why-choose-item wow fadeInUp">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon3.png' %}" alt="">
+                            </div>
+                            <div class="why-choose-item-content">
+                                <h3>Quick Response Service</h3>
+                                <p>Our team is always ready to handle urgent pest problems quickly and efficiently anytime.</p>
+                            </div>
+                        </div>
+
+                           <div class="why-choose-item wow fadeInUp">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon3.png' %}" alt="">
+                            </div>
+                            <div class="why-choose-item-content">
+                                <h3>Quick Response Service</h3>
+                                <p>Our team is always ready to handle urgent pest problems quickly and efficiently anytime.</p>
+                            </div>
+                        </div>
+
+                           <div class="why-choose-item wow fadeInUp">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon3.png' %}" alt="">
+                            </div>
+                            <div class="why-choose-item-content">
+                                <h3>Quick Response Service</h3>
+                                <p>Our team is always ready to handle urgent pest problems quickly and efficiently anytime.</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <!-- Page Cta Box Start -->
+                        <div class="page-cta-box wow fadeInUp" data-wow-delay="0.6s">
+                            <!-- Page Cta Box Info Start -->
+                            <div class="page-cta-box-info">
+                                <h3>Take Back Your Home From Pests. Today!</h3>
+                            </div>
+                            <!-- Page Cta Box Info End -->
+
+                            <!-- Cta Contact Box Start -->
+                            <div class="cta-contact-box">
+                                <p>call now</p>
+                                <div class="cta-contact-item">
+                                    <div class="icon-box">
+                                             <img src="{% static 'images/psp.jpg' %}" alt="Contact Image" class="img-fluid rounded shadow">
+                                    </div>
+                                    <div class="cta-contact-item-content">
+                                        <h3><a href="tel:{{ footer.contact_phone|default:'9030656872' }}">+91 {{ footer.contact_phone|default:'9030656872' }}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Cta Contact Box End -->
+                        </div>
+                        <!-- Page Cta Box End -->
+                    </div>
+                    <!-- Why Choose Box End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Section Footer Text Start -->
+                    <!-- <div class="section-footer-text wow fadeInUp" data-wow-delay="0.8s">
+                        <p><span>Free</span>Let's create a pest-free environment - <a href="contact.html">Contact us
+                                today!</a></p>
+                    </div> -->
+                    <!-- Section Footer Text End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Why Choose Us Section End -->
+
+
+    <!-- Contact Form Section Start -->
+    <section id="contact" class="contact-form-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- Left Column - Contact Form -->
+                <div class="col-lg-7">
+                    <div class="contact-us-form">
+                        <!-- Section Title Start -->
+                        <div class="section-title mb-4">
+                            <h2 class="text-anime-style-2">
+                                Effective pest solutions - <span>reach out today!</span>
+                            </h2>
+                        </div>
+                        <!-- Section Title End -->
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-success text-center">{{ message }}</div>
+                        {% endfor %}
+                        {% endif %}
+
+                        <form method="POST" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="form-group col-md-12 mb-3">
+                                    <input type="text" name="name" class="form-control" placeholder="Enter name"
+                                        required>
+                                </div>
+
+                                <div class="form-group col-md-12 mb-3">
+                                    <input type="email" name="email" class="form-control" placeholder="Enter email"
+                                        required>
+                                </div>
+
+                                <div class="form-group col-md-12 mb-3">
+                                    <input type="text" name="phone" class="form-control"
+                                        placeholder="Enter phone number" required>
+                                </div>
+
+                                <div class="form-group col-md-12 mb-4">
+                                    <textarea name="message" class="form-control" rows="4"
+                                        placeholder="Enter message"></textarea>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Column - Image -->
+                <div class="col-lg-5 mt-4 mt-lg-0 text-center">
+                    <figure>
+                        <img src="{% static 'images/psp.jpg' %}" alt="Contact Image" class="img-fluid rounded shadow">
+                    </figure>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Contact Form Section End -->
+
+
+    <!-- Main Footer Start -->
+    <footer class="main-footer dark-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <!-- About Footer Start -->
+                    <div class="about-footer footer-links">
+                        <h3>{{ footer.about_text|default:"ABOUT LAKSMI RAM SOLUTION" }}</h3>
+                        <p>{{ footer.about_text|default:"We are committed to ensuring pest-free, healthy spaces for both homes and businesses. With years of proven expertise in pest management, we provide effective, eco-friendly solutions customized to your needs." }}</p>
+                        <p>{{ footer.about_text|default:"we pride ourselves on delivering effective, eco-friendly solutions tailored to your needs." }}</p>
+                    </div>
+                    <!-- About Footer End -->
+                </div>
+
+                <div class="col-lg-2 col-md-3">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="about.html">About company</a></li>
+                            <li><a href="services.html">Our services</a></li>
+
+                            <li><a href="image-gallery.html">Gallery</a></li>
+                            <li><a href="contact.html">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+
+                <div class="col-lg-2 col-md-4">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="hoteslsResortsRestaurants.html">Hotels</a></li>
+                            <li><a href="ResedintialApartmentsFarmhouse.html">Apartments</a></li>
+                            <li><a href="HealthcareHospitals.html">Healthcare</a></li>
+                            <li><a href="logistics.html">Logistics</a></li>
+                            <li><a href="MallsMarts.html">Shopping Malls</a></li>
+
+
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-5">
+                    <div class="footer-links">
+                        <h3>contact us</h3>
+                        <!-- Footer Contact Item Start -->
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="footer-contact-content">
+                                <p><a href="mailto:{{ footer.contact_email|default:'lakshmiramsolution@gmail.com' }}">{{ footer.contact_email|default:'aks@gmail.com' }}</a></p>
+                            </div>
+                        </div>
+                        <!-- Footer Contact Item End -->
+
+                        <!-- Footer Contact Item Start -->
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="footer-contact-content">
+                                <p><a href="tel:{{ footer.contact_phone|default:'0123456789' }}">{{ footer.contact_phone|default:'0123456789' }}</a></p>
+                            </div>
+
+                        </div>
+
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="footer-contact-content">
+                                <p><a href="{{ footer.contact_address|default:'https://www.google.com/maps' }}">{{ footer.contact_address|default:'H.no- united states' }}</a></p>
+                            </div>
+
+                        </div>
+
+                        <!-- Footer Contact Item End -->
+                    </div>
+                </div>
+
+
+            </div>
+           <!-- copy right section -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hrline"></div>
+
+                    <p class="copyright-section">
+                        {{ footer.copyright_text|default:"&copy; 2025 AKS. All Rights Reserved." }}
+                       
+                    </p>
+                </div>
+            </div>
+            <!-- copy right section -->
+
+
+
+        </div>
+    </footer>
+    <!-- Main Footer End -->
+
+ {% load static %}
+<!-- Jquery Library File -->
+<script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+<!-- Bootstrap js file -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Validator js file -->
+<script src="{% static 'js/validator.min.js' %}"></script>
+<!-- SlickNav js file -->
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<!-- Swiper js file -->
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+<!-- Counter js file -->
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+<!-- Isotop js file -->
+<script src="{% static 'js/isotope.min.js' %}"></script>
+<!-- Magnific js file -->
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<!-- SmoothScroll -->
+<script src="{% static 'js/SmoothScroll.js' %}"></script>
+<!-- Parallax js -->
+<script src="{% static 'js/parallaxie.js' %}"></script>
+<!-- MagicCursor js file -->
+<script src="{% static 'js/gsap.min.js' %}"></script>
+<script src="{% static 'js/magiccursor.js' %}"></script>
+<!-- Text Effect js file -->
+<script src="{% static 'js/SplitText.js' %}"></script>
+<script src="{% static 'js/ScrollTrigger.min.js' %}"></script>
+<!-- YTPlayer js File -->
+<script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
+<!-- Wow js file -->
+<script src="{% static 'js/wow.min.js' %}"></script>
+<!-- Main Custom js file -->
+<script src="{% static 'js/function.js' %}"></script>
+<!-- Theme Panel js file -->
+<script src="{% static 'js/theme-panel.js' %}"></script>
+
+</body>
+
+<!-- Mirrored from html.awaikenthemes.com/petronus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 08:03:26 GMT -->
+
+</html>
