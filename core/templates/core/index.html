@@ -425,6 +425,7 @@
                         <figure class="image-anime reveal">
                          <img src="{% static 'images/sprayerimage.jpg' %}" alt="Features Image">
 
+
                         </figure>
 
                         <!-- Contact Us Circle Start -->
@@ -627,9 +628,11 @@
                 <div class="col-lg-5">
                     <!-- About Footer Start -->
                     <div class="about-footer footer-links">
-                        <h3>{{ footer.about_text|default:"ABOUT LAKSMI RAM SOLUTION" }}</h3>
+                        <!-- <h3>{{ footer.about_text|default:"ABOUT LAKSMI RAM SOLUTION" }}</h3>
                         <p>{{ footer.about_text|default:"We are committed to ensuring pest-free, healthy spaces for both homes and businesses. With years of proven expertise in pest management, we provide effective, eco-friendly solutions customized to your needs." }}</p>
-                        <p>{{ footer.about_text|default:"we pride ourselves on delivering effective, eco-friendly solutions tailored to your needs." }}</p>
+                        <p>{{ footer.about_text|default:"we pride ourselves on delivering effective, eco-friendly solutions tailored to your needs." }}</p> -->
+                        <h3>About Sonota software</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis aspernatur excepturi debitis non iure, impedit cumque dolore quas eum nam.</p>
                     </div>
                     <!-- About Footer End -->
                 </div>
@@ -696,7 +699,7 @@
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div class="footer-contact-content">
-                                <p><a href="#">{{ footer.contact_address|default:'H.no- united states' }}</a></p>
+                                <p><a href="{{ footer.contact_address|default:'https://www.google.com/maps' }}">{{ footer.contact_address|default:'H.no- united states' }}</a></p>
                             </div>
 
                         </div>

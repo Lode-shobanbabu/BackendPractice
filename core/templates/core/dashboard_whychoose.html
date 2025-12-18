@@ -1,29 +1,141 @@
 {% extends "core/dashboard.html" %}
 {% block content %}
-<h3>Manage Why Choose Items</h3>
 
-<h5>Add Item</h5>
-<form method="POST">
-    {% csrf_token %}
-    <input type="hidden" name="action" value="add">
-    <input type="text" name="title" class="form-control mb-2" placeholder="Title">
-    <input type="text" name="description" class="form-control mb-2" placeholder="Description">
-    <input type="text" name="icon_path" class="form-control mb-2" placeholder="Icon Path">
-    <button class="btn btn-success">Add</button>
-</form>
+<div style="
+    max-width: 1100px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+">
 
-<hr>
-<h5>Existing Items</h5>
-{% for w in whychoose %}
-<form method="POST" class="mb-3">
-    {% csrf_token %}
-    <input type="hidden" name="action" value="update">
-    <input type="hidden" name="id" value="{{ w.id }}">
-    <input type="text" name="title" class="form-control mb-2" value="{{ w.title }}">
-    <input type="text" name="description" class="form-control mb-2" value="{{ w.description }}">
-    <input type="text" name="icon_path" class="form-control mb-2" value="{{ w.icon_path }}">
-    <button class="btn btn-primary">Update</button>
-    <a href="?delete={{ w.id }}" class="btn btn-danger">Delete</a>
-</form>
-{% endfor %}
+    <!-- Page Title -->
+    <h3 style="
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: #2c3e50;
+        border-bottom: 2px solid #0d6efd;
+        padding-bottom: 10px;
+    ">
+        Manage Why Choose Items
+    </h3>
+
+    <!-- Add Item -->
+    <h5 style="margin-top: 25px; color:#198754; font-weight:600;">
+        ➕ Add New Item
+    </h5>
+
+    <form method="POST" style="
+        background:#f8f9fa;
+        padding:20px;
+        border-radius:8px;
+        margin-top:15px;
+    ">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="add">
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+            <input type="text" name="title" placeholder="Title"
+                style="padding:10px;border-radius:6px;border:1px solid #ced4da;">
+            <input type="text" name="icon_path" placeholder="Icon Path (images/icon.svg)"
+                style="padding:10px;border-radius:6px;border:1px solid #ced4da;">
+        </div>
+
+        <textarea name="description" placeholder="Short Description"
+            style="
+                margin-top:15px;
+                width:100%;
+                padding:10px;
+                border-radius:6px;
+                border:1px solid #ced4da;
+                min-height:90px;
+            "></textarea>
+
+        <button type="submit"
+            style="
+                margin-top:15px;
+                background:#198754;
+                color:#fff;
+                border:none;
+                padding:10px 25px;
+                border-radius:6px;
+                font-weight:500;
+                cursor:pointer;
+            ">
+            Add Item
+        </button>
+    </form>
+
+    <!-- Existing Items -->
+    <h5 style="
+        margin-top:40px;
+        margin-bottom:15px;
+        color:#0d6efd;
+        font-weight:600;
+    ">
+        📋 Existing Items
+    </h5>
+
+    {% for w in whychoose %}
+    <form method="POST" style="
+        background:#ffffff;
+        border:1px solid #dee2e6;
+        padding:20px;
+        border-radius:8px;
+        margin-bottom:15px;
+    ">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="update">
+        <input type="hidden" name="id" value="{{ w.id }}">
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+            <input type="text" name="title"
+                value="{{ w.title }}"
+                style="padding:10px;border-radius:6px;border:1px solid #ced4da;">
+            <input type="text" name="icon_path"
+                value="{{ w.icon_path }}"
+                style="padding:10px;border-radius:6px;border:1px solid #ced4da;">
+        </div>
+
+        <textarea name="description"
+            style="
+                margin-top:15px;
+                width:100%;
+                padding:10px;
+                border-radius:6px;
+                border:1px solid #ced4da;
+                min-height:90px;
+            ">{{ w.description }}</textarea>
+
+        <div style="margin-top:15px; display:flex; gap:10px;">
+            <button type="submit"
+                style="
+                    background:#0d6efd;
+                    color:#fff;
+                    border:none;
+                    padding:8px 20px;
+                    border-radius:6px;
+                    cursor:pointer;
+                ">
+                Update
+            </button>
+
+            <a href="?delete={{ w.id }}"
+                style="
+                    background:#dc3545;
+                    color:#fff;
+                    padding:8px 20px;
+                    border-radius:6px;
+                    text-decoration:none;
+                ">
+                Delete
+            </a>
+        </div>
+    </form>
+    {% empty %}
+    <p style="color:#6c757d;">No items added yet.</p>
+    {% endfor %}
+
+</div>
+
 {% endblock %}
